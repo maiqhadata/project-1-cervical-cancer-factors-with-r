@@ -8,6 +8,7 @@ The complete pdf version of this project can be found [here](cervical-cancer-fac
 
 ### Check my work
 
+- All files can be found on <a href="https://github.com/maiqhadata/project-1-cervical-cancer-factors-with-r">GitHub</a>
 - I created this project using R Markdown in R Studio using this [code file](cervical-cancer-factor-with-R-markdown.Rmd).
 - A [bibliography file](cervical-cancer-bibliography.bib) is necessary to do live citation in R studio and create a reference page. Make sure the bibliography file is in the same folder as your R markdown file.
 - You also need to download and put these [csv](risk_factors_cervical_cancer.csv) [files](risk_factors_cervical_cancer1.csv) in the same folder. These files were cleaned (some columns were removed without modifying any of the data) from the original dataset on the [UC Irvine Machine Learning repository](https://archive.ics.uci.edu/ml/datasets/Cervical+cancer+%28Risk+Factors%29).
