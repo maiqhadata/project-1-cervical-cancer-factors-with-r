@@ -1,0 +1,326 @@
+\newpage
+
+\tableofcontents
+
+\newpage
+
+# **PROJECT DESCRIPTION**
+
+The project was written in the statistical programming language R version 4.0.2 in R Studio using MacTeX to write mathematical formulas in LaTeX, subsequently produced into this format using R Markdown.
+
+```{r setup, include=TRUE, echo=T}
+knitr::opts_chunk$set(echo=TRUE)
+options(citr.use_betterbiblatex = FALSE)
+#add bibliography and the ability to make citations to the rest of the document
+```
+
+\newpage
+
+# **BACKGROUND INFORMATION**
+  
+## What is Cervical Cancer?
+  
+An abnormal growth of cells in the cervix (the lowest part of the uterus connecting to the vagina) is referred to as cervix epidermoid carcinoma, or more commonly known as cervical cancer. There are two main types of cervical cancer, squamous cell carcinoma and adenocarcinoma. These names refer to the location and types of cell growth. Squamous cell carcinoma originates in the squamous cells lining the outer part of the cervix while adenocarcinoma forms in the column-shaped glandular cells living the cervical canal [@mayoclinicCervicalCancerOverview2018].
+
+## Effects of Cervical Cancer
+ 
+  Cervical cancer is the most frequent neoplasia among women living in the "so-called" third world countries; it is also one of the leading cause of cancer mortality among women in developing countries [@garza-salazarCervicalCancer2017].
+  
+  According to the World Health Organization, cervical cancer is the fourth most frequent cancer in women, with an estimate of 530,000 new cases in 2012 [@whoCervicalCancer].
+  Also in 2012, approximately 270,000 women died from cervical cancer, of which more than 85% of the deaths occurred in low- and middle- income countries [@whoHumanPapillomavirusHPV2016].
+  In the Region of the Americas, cervical cancer claimed 83,000 diagnoses and killed almost 36,000 women in 2012 [@pahoCervicalCancer].
+  In 2014, cervical cancer is the eighth most common cancer the United States [@taoPrevalenceRiskFactors2014].
+
+
+\newpage
+
+# **POSSIBLE FACTORS IN RESEARCH**
+
+## Cervical Cancer and Age
+
+  The age group that were most by cervical cancer were from 50-59 and 30-49 years old in that order [@reynoso-noveronCervicalCancerEpidemiology2017].
+  
+  A study on cervical neoplasia risk factors revealed that 46-55 year-old women are specifically at higher risk for high-grade squamous intraepithelial lesions (HSIL). These lesions referred to the extensive changes in squamous cells of the cervix, which serves as an indicator for progression to cervical carcinoma in at least 25% of cases [@taoPrevalenceRiskFactors2014].
+  
+  Another study on the relation of age and cervical cancer showed that cervical cancer progression and survival outcomes were age independent in women that are 35 years of age or less [@pelkofskiCervicalCancerWomen2016]. The study also mentioned that results regarding age and cervical cancer are conflicting and concluded that further study of a larger cohort of women could yield different outcomes.
+
+## Cervical Cancer and Sexual Activity
+
+  A study revealed that women who had their first sexual intercourse at an age less than 18 has a significant odd ratio of 5.44 [@sharmaStudyRiskFactors2017]. This meant if a woman had her first intercourse at 18 years old and younger, she was 5.44 times more likely to get cervical cancer than someone who had their first intercourse at or above age 18.
+
+## Cervical Cancer and Smoking
+ 
+  A very large study was done on the EPIC (European Prospective Investigation into Cancer and Nutrition) cohort to study the risk factors of cervical cancer. This study was conducted on over 450,000 qualified participants, with over 300,000 women and 150,000 men. Participants were mostly between the age of 35 and 70, with no prevalent cancer or pre-cancer. In one particular paper from this study, the authors established that duration and intensity of smoking tobacco increased the risk of cervical cancer, conversely, the time lapse from quitting has a negative correlation with cervical cancer risk [@rouraSmokingMajorRisk2013].
+
+## Cervical Cancer, (Hormonal) Contraceptives and Pregnancy
+
+The same prospective study of the EPIC cohort above also investigated the associations between hormonal contraceptives and risk of developing cervical neoplasia or carcinoma in another paper. This paper suggested that long-term use of several types of hormonal contraceptives are risk factors for the generation of cervical cancer and pre-cancer cells. The paper further concluded a positive association between the number of full-term pregnancies and cervical cancer. In general, increasing number of full-term pregnancies and duration of oral contraceptives use would increase the risk of cervical cancer [@rouraInfluenceHormonalFactors2016].
+
+## Cervical Cancer and HIV/AIDS
+
+A cross-sectional study in Brazil of 494 HIV-infected women concluded that along with presence of HPV infection and younger age, the severity of immunosuppression induced by HIV infection was a strong predictor of cervical intra-epithelial neoplasia [@teixeiraPrevalenceRiskFactors2012]. In general, it could take 15 to 20 years for cervical cancer to develop in women with normal immune systems, while it could take only 5 to 10 years in women with weakened immune systems (having untreated HIV infection) to develop this cancer [@whoHumanPapillomavirusHPV2016]
+
+## Cervical Cancer and HPV
+
+HPV stands for Human Papilloma Virus.  A study claims that one out of every ten women that acquired the HPV infection will develop cervical cancer [@reynoso-noveronCervicalCancerEpidemiology2017]. Certain factors that were formerly believed to be associated with an increased risk of developing cervical cancer are now also known to be risk factors for HPV infection [@reynoso-noveronCervicalCancerEpidemiology2017]. These risks are as followed:
+  
+- Tobacco consumption
+- Sexually Transmitted Diseases or STD's (specifically herpes and chlamydia)
+- Use of oral hormonal contraceptive
+- Age of onset of sexual activity with the absence of protection
+- High-risk sexual behavior throughout lifetime (i.e. multiple sexual partners)
+  
+The World Health Organization reported at least 13 of the 100 types of HPV were cancer-causing, of which the types HPV 16 and 18 caused up to 70% of cervical cancer cases and precancerous cervical lesions. Although most HPV infections could clear up on their own, there was a risk for all women that HPV infection became chronic and precancerous lesions progressed into invasive cervical cancer [@whoHumanPapillomavirusHPV2016].
+
+
+\newpage
+
+# **STATISTICAL MODELS INFORMATION**
+
+## Model 1: Linear Discrimination Analysis
+  
+  Discrimination analysis is a multivariate technique concerned with separating distinct sets of objects and allocating new objects to previously defined groups based on a set of features, $x_1, x_2, ..., x_p$.
+  
+  Let $\pi_1$ and $\pi_2$ be two multivariate populations, and let $f_1(x)$ and $f_2(x)$ be the density functions associated with the random vector $x$ for the density functions associated with the random vector $x$ for the two populations, respectively.
+  
+  The density functions are normally distributed with mean $\mu_i$ and covariance matrix, $\sum_i$ for $i=1,2$. If two populations have equal covariance matrices, $\sum_1 = \sum_2 = \sum$, then we use the linear discrimination rule [@johnsonDiscriminationClassification2007].
+
+<center>  *Linear Discrimination Rule* </center>
+
+  By the linear classification rule, an object $x_0$ is classified into $\pi_1$ if $$( \mu_1- \mu_2)' \sum \nolimits^{-1} x_0 - \frac{1}{2} (\mu_1-\mu_2)' \sum \nolimits^{-1} (\mu_1+\mu_2) \ge 0$$
+  and it is classified to $\pi_2$ otherwise [@baguiStatisticalClassificationBreast2016].
+
+## Model 2: Quadratic Discrimination Analysis
+
+<center>  *Quadratic Discrimination Rule* </center>
+ 
+  The quadratic classification rule is used when two groups have unequal covariance, $\sum_1 \ne \sum_2$; an object $x_0$ is classified into $\pi_1$ if $$-\frac{1}{2} x_0'(\sum\nolimits_1^{-1} -\sum\nolimits_2^{-1})x_0 + (\mu_1'\sum\nolimits_2^{-1})x_0 - k \ge 0$$, where $k = \frac{1}{2}ln(\frac{| \sum_1| }{ |\sum_2| }) + \frac{1}{2}( \mu_1\sum\nolimits_1^{-1} \mu_1 - \mu'_2\sum\nolimits_2^{-1} \mu_2)$.
+  
+  If $\mu_1, \mu_2, \sum_1$ and $\sum_2$ are unknown, then they may be replaced by their corresponding unbiased sample estimates, $\bar X , \bar Y, S_1$ and $S_2$, respectively [@baguiStatisticalClassificationBreast2016].
+
+## Model 3: Logistic Regression Analysis
+ 
+  Logistic regression is an approach to classification where some or all of the variables are qualitative [@johnsonDiscriminationClassification2007]. The response variable Y is dichotomous, which means it is restricted to two values, usually assigned 0 and 1, where 1 is "success" and 0 is otherwise.
+  
+  Let $\pi(x)$ be the probability of getting a "success". The odds ratio is equal to $$odds = \frac{\pi(x)}{1-\pi(x)}$$ and the logit is defined as the natural log of the odds. Then, linear regression is applied using the logit as the response instead of the response variable of interest. This is due to the possibility that the range of the logit may assume values between $-\infty$ to $\infty$ instead of just between 0 to 1 as in the case of the response variable [@baguiStatisticalClassificationBreast2016]. Thus, the regression function is $$ln \frac{\pi(x)}{1-\pi(x)} = \beta_0 + \beta_1x_1 + ... + \beta_px_p$$
+  
+  Solving for $\pi(x)$ using the function $$\frac{e^{\beta_0 + \beta_1x_1 + ... + \beta_px_p}}{1 - e^{\beta_0 + \beta_1x_1 + ... + \beta_px_p}}$$ will then help estimate the coefficients $\beta_0, \beta_1, ...,\beta_p$.
+  
+  Thus, for a response variable with several predictor variables, the Logistic Regression Analysis creates a linear model based on the natural log of the odds ratio rather than the mean of the variables [@johnsonDiscriminationClassification2007].
+  
+<center>  *Logistic Regression Classification Rule*  </center>
+ 
+  An object $x$ is assigned to $\pi_1$ if the estimated odds is greater than 1. $$\frac{\hat\pi(x)}{1-\hat\pi(x)} = e^{\hat\beta_0 + \hat\beta_1x_1 + ... + \hat\beta_px_p} > 1$$
+  
+  Object $x$ is assigned to $\pi_1$ if the logit is greater than 0. $$ln \frac{\hat\pi(x)}{1-\hat\pi(x)} = \hat\beta_0 + \hat\beta_1x_1 + ... + \hat\beta_px_p > 0$$ [@baguiStatisticalClassificationBreast2016].
+  
+
+## Model Selection using Miscalculation Rate and AIC (Stepwise-function)
+  
+  The performance of the discriminant function can be evaluated by applying the rules to the data and then calculating the misclassification rate. [@johnsonDiscriminationClassification2007]. Additionally, the accuracy rate is also calculated (opposite of misclassification) to aid the selection of model. Both calculations of the misclassification and accuracy rates will be applied on all three models (where appropriate) to optimize model selection.
+  
+  The Akaike Information Criterion (AIC) is a measure of evaluating statistical models for a given dataset. The best model for a particular dataset is one with the smallest AIC value [@kimuraMinimizationAkaikeInformation2017]. This is the misclassification rate as mentioned above. The AIC is defined by
+  
+<center>
+AIC = (-2) log(maximum likelihood) + 2*(number of independently adjusted parameters within the model)
+</center>
+
+[@akaikeNewLookStatistical1974].
+  
+  Since there are many candidates for the best model, the stepwise function is also aplied to determine the best model out of the three models by applying local search algorithms to find the models with the smallest AIC value possible [@kimuraMinimizationAkaikeInformation2017]. This method is applicable to the Logistic Regression Model only.
+
+
+
+\newpage
+
+# **IMPLEMENTATION AND RESULTS**
+
+## Description of Dataset
+
+  The dataset was made available in the University of California in Irvine Machine Learning Repository. Data was collected at the 'Hospital Universitario de Caracas' in Caracas, Venezuela and was donated to the university repository in 2017. The dataset comprised of demographic information, habits, and historic medical records of 858 patients accross 36 attributes. There were missing values due to several patients decided not to answer some of the questions because of privacy concerns [@uciCervicalCancerRisk2017]. The data set can be found using the link below
+  
+https://archive.ics.uci.edu/ml/datasets/Cervical+cancer+%28Risk+Factors%29
+
+  13 variables chosen due to lack of background research on the omitted attributes. Many of the attributes that were disregarded were specific types of STD's (besides HPV and HIV), and IUD (yes/no, years). For a complete list of all attributes, please visit the link above.
+  
+  The chosen variables and their respective variable names in the dataset are:
+  
+- Age (age)
+- Number of sexual partners (nosxp)
+- First sexual intercourse (firstsx): the age at which each patient has their first sexual intercourse
+- Number of pregnancies (npreg)
+- Smokes (smokes): whether each patient smokes
+- Smokes years (smokesyr): how many years each patient smokes
+- Smokes packs (smokespk): how many pack each patient smoke per year
+- Hormonal contraceptive (hcntr): whether each patient takes hormonal contraceptives
+- Hormonal contraceptive years (hcntryr): how many years each patient takes hormonal contraceptives
+- STD-HIV (stdhiv): whether each patient reports to have HIV
+- STD-HPV (stdhpv): whether each patient reports to have HPV
+- Cancer (cancer): whether each patient is diagnosed with cervical cancer
+- HPV (hpv): whether each patient is diagnosed/confirmed to have HPV
+  
+  The dataset is splitted into two smaller datasets for use with the appropriate modeling methods. These datasets are named "ccdata1"" and "ccdata2". "ccdata1" is the set of all 13 variables mentioned above, and "ccdata2" is the set of the variables that are continuous variables (for discriminant analyses). The variables included in "ccdata2" are "age", "nosxp", "firstsx", "npreg", "smokesyr", "smokespk", "hcntryr", and "cancer".
+
+```{r, echo=T, warning=F}
+#Import datasets into R below
+ccdata1 = na.omit(read.csv("risk_factors_cervical_cancer.csv",header=TRUE))
+#ccdata1 is the set of chosen variables
+ccdata2 = na.omit(read.csv("risk_factors_cervical_cancer1.csv",header=TRUE))
+#ccdata2 is the set of all variables
+library(MASS);library(RcmdrMisc) #necessary library for the models
+```
+
+
+## Results
+
+The following analyses are done using R Version 4.0.2, released on 2020-06-22. These analyses are partly based on a tutorial from the University of Cincinnati's "An Introduction to Statistical Learning" [@ucLinearQuadraticDiscriminant2018] and a paper called "The Statistical Classification of Breast Cancer Data" [@baguiStatisticalClassificationBreast2016]. 
+
+
+### Method 1: Linear Discriminant Analysis (LDA)
+
+The first model (named "model1") deals with linear discriminant analysis using "ccdata2". The probability table is as follows:
+
+```{r, echo=T, warning=F}
+model1 = lda(formula=cancer ~ ., data = ccdata2) #linear discriminant analysis
+pred.lda = predict(model1, data = ccdata2)
+table1 = table(ccdata2$cancer, pred.lda$class)  #number of prediction in each category for model1
+round(prop.table(table1),3)  #probability table model1
+```
+
+This table shows that 2.4% of the population are incorrectly categorized into the non-cancer group when they indeed have cancer, while 0.4% of the population is predicted to be in the cancer group when they actually do not have cervical cancer. Thus the misclassification rate is the sum of these two errors, which is as follows:
+
+```{r, echo=T, warning=F}
+round(mean(ccdata2$cancer != pred.lda$class),3)  #overall error rate for model1
+```
+
+
+### Method 2: Quadratic Discriminant Analysis (QDA)
+
+The second model (named "model2") deals with quadratic discriminant analysis using "ccdata2". The probability table is as follows:
+
+```{r, echo=T, warning=F}
+model2 = qda(formula=cancer ~ ., data=ccdata2) #quadratic discriminant analysis
+pred.qda = predict(model2, data = ccdata2)
+table2 = table(ccdata2$cancer, pred.qda$class)
+round(prop.table(table2),3)  #probability table model2
+```
+
+This table shows that 2.4% of the population are incorrectly categorized into the non-cancer group when they indeed have cancer, while 1.6% of the population is predicted to be in the cancer group when they actually do not have cervical cancer. Thus the misclassification rate is the sum of these two errors, which is as follows:
+
+```{r, echo=T, warning=F}
+round(mean(ccdata2$cancer != pred.qda$class),3)  #overall error rate model2
+```
+
+
+### Method 3: Logistic Regression Analysis (LRA)
+
+This third model (named "model3") deals with logistic regression on the "ccdata2". The same dataset is used so the comparison between the three models is controlled. The probability table for this model is as follows:
+
+```{r, echo=T, warning=F}
+model3 = glm(cancer ~ ., data=ccdata2, family = "binomial" (link="logit")) #logistic regression model
+pred.glm = predict(model3, ccdata2, type="response")
+table3 = table(ccdata2$cancer, ifelse(pred.glm > 0.5, "1", "0")) #prediction table model3
+round(prop.table(table3),3)
+```
+
+This table shows that 2.4% of the population are incorrectly categorized into the non-cancer group when they indeed have cancer, while none of the population is predicted to be in the cancer group when they actually do not have cervical cancer. Thus the mis-classification rate is just the error rate 2.4%.
+
+
+<center> **Which model is the best?** </center>
+
+The following list of output represent the three accuracy rates of "model1" (using LDA), "model2" (using QDA), and "model3" (using LRA) respectively:
+
+```{r, echo=T, warning=F}
+round(mean(ccdata2$cancer == pred.lda$class),3)  #Accuracy rate for model1
+round(mean(ccdata2$cancer == pred.qda$class),3)  #Accuracy rate model2
+round(mean(ifelse(pred.glm > 0.5, "1", "0") == ccdata2$cancer),3) #Accuracy rate model3
+```
+
+Off all the three models, logistic regression performs the best with 97.6% accuracy. Thus, further analyses on the full dataset "ccdata1" are done using logistic regression analysis.
+
+
+### Further Analyses
+
+For the first full analysis, logistic regression is used on the full dataset "ccdata1" by regressing cancer against all other variables in a new model (named "model4"). The probability table is as follows:
+
+```{r, echo=T, warning=F}
+model4 = glm(cancer ~ ., data=ccdata1, family="binomial" (link="logit"))
+pred.glm1 = predict(model4, ccdata1, type="response")
+table4 = table(ccdata1$cancer, ifelse(pred.glm1 > 0.5, "1", "0")) #Prediction table model4
+round(prop.table(table4), 3)
+```
+
+This table shows that 0.3% of the population are incorrectly categorized into the non-cancer group when they indeed have cancer, while none of the population is predicted to be in the cancer group when they do not have cervical cancer. Thus the mis-classification rate is the same as the error rate, which is 0.3%.
+
+----
+
+```{r, include=F, echo=T, warning=F}
+choose = stepwise(model4)
+```
+
+Using stepwise analysis, the chosen model and its corresponding AIC are as follows:
+
+```{r, echo=T, warning=F}
+choose$formula
+choose$aic
+```
+
+Creating a model (named "model5") using this suggestion yields this following probability table:
+
+```{r, echo = T, warning=F}
+model5 = glm(cancer ~ hpv, ccdata1, family="binomial" (link="logit"))
+pred.glm2 = predict(model5, ccdata1, type="response")
+table5 = table(ccdata1$cancer, ifelse(pred.glm2 > 0.5, "1", "0")) 
+round(prop.table(table5), 3)
+```
+
+This table shows that 0.3% of the population are incorrectly categorized into the non-cancer group when they indeed have cancer, while 0.1% of the population is predicted to be in the cancer group when they, in fact, do not have cervical cancer. Thus the mis-classification rate is the sum of these two error rates, which is as follows:
+
+```{r, echo=T, warning=F}
+round(mean(ifelse(pred.glm2 > 0.5, "1", "0") != ccdata1$cancer),3) #error rate model5
+```
+
+----
+
+Based on suggested models from the stepwise output, a few more variables were added to create a "model6" to acquire the same low mis-classification rate as in the model of all variables ("model4"). Its probability table is as follows:
+
+```{r, echo = T, warning=F}
+model6 = glm(cancer ~ hpv + smokes + smokesyr, ccdata1, family="binomial" (link="logit"))
+pred.glm3 = predict(model6, ccdata1, type="response")
+table6 = table(ccdata1$cancer, ifelse(pred.glm3 > 0.5, "1", "0"))
+round(prop.table(table6), 3)
+```
+
+This table shows that the error rates of the new model ("model6") is the same as in the model of all variables ("model4"), which has the mis-classification rate as follows:
+
+```{r, echo=T, warning=F}
+round(mean(ifelse(pred.glm3 > 0.5, "1", "0") != ccdata1$cancer),3)
+```
+
+----
+
+The following accuracy rates are of "model4", "model5", and "model6" respectively.
+
+```{r, echo=T, warning=F}
+round(mean(ifelse(pred.glm1 > 0.5, "1", "0") == ccdata1$cancer),3) #accuracy rate model4
+round(mean(ifelse(pred.glm2 > 0.5, "1", "0") == ccdata1$cancer),3) #accuracy rate model5
+round(mean(ifelse(pred.glm3 > 0.5, "1", "0") == ccdata1$cancer),3) #accuracy rate model6
+```
+
+These accuracy rates show that model4 and model6 have the same strengths even though model6 has a significantly smaller set of variables.
+
+\newpage
+
+# **CONCLUSION AND DISCUSSION**
+
+  Out of the three methods of classification, the logistic regression model has the lowest overall error rate and highest accuracy levels.
+  
+  Using the logistic regression model on the full dataset yields a higher accuracy levels than the reduced dataset of just the continuous factors (99.7% versus 97.6%). However, the stepwise selection function reveals that "hpv" (whether a patient is positive for HPV) alone can predict cervical cancer with up to 99.6% accuracy. Additionally, adding the variables "smokes" (whether a patient smokes) and "smokesyr" (how many years a patient smokes) slightly increases the accuracy to 99.7%, which is the same accuracy as the model using all of the factors for prediction.
+
+  As expected from the background research, HPV is the most prevalent factor in predicting cervical cancer. The next two useful predictive factors are (1) whether a patient smokes and (2) the time length that each patient smokes (if any). This is also expected given tobacco consumption is one of the factors that increases the risk of getting HPV. Thus, the three variables "hpv", "smokes", and "smokesyr" can predict cervical cancer with the highest accuracy.
+  
+  Fortunately, approximately 70% of cervical cancer cases could be avoided through HPV vaccination [@pahoCervicalCancer]. Vaccine against HPV (specifically HPV 16 and 18) have been approved for use in many countries [@whoHumanPapillomavirusHPV2016]. Furthermore, smoking is a factor that can be controlled, eliminated, and avoided through medication, lifestyle changes, and raising awareness.
+
+\newpage
+
+# **REFERENCES**
